@@ -2,38 +2,25 @@
 title: "Hello World"
 date: 2026-03-27
 draft: false
-tags: ["meta", "python"]
-summary: "A first test post to verify the blog setup, including syntax highlighting."
+tags: ["meta"]
+summary: "A quick intro and a look at my first project — Neutron, a abstract strategy board game you can play in the browser."
 ---
 
-Welcome to my new blog, powered by [Hugo](https://gohugo.io/) and [PaperMod](https://github.com/adityatelange/hugo-PaperMod).
+Hi! I'm Mike Sluyter! I'll be detailing some of my adventures in coding here.
 
-## Testing Syntax Highlighting
+## Neutron
 
-Here's a quick Python snippet to make sure code blocks render properly:
+My first project is a browser-based implementation of [Neutron](https://en.wikipedia.org/wiki/Neutron_(board_game)), an abstract strategy board game invented by Robert A. Kraus in 1978.
 
-```python
-from dataclasses import dataclass
-from typing import Iterator
+The game is played on a 5×5 grid. Each player has five soldiers on their home row, and a single neutral piece — the neutron — starts in the center. On each turn, you first slide the neutron in any direction (it travels until it hits the edge or another piece), then slide one of your own soldiers. The goal is to get the neutron onto your home row.
 
+It sounds simple, but there's real depth to it. The neutron is shared, so every move you make with it sets up your opponent's next turn. Positioning your soldiers to control the neutron's path is the key to winning.
 
-@dataclass
-class FibSequence:
-    """Generate Fibonacci numbers up to a limit."""
-    limit: int
+The app includes:
+- **Three AI difficulty levels** — Easy (random safe moves), Intermediate (minimax with alpha-beta pruning), and Advanced (iterative deepening with a time budget)
+- **Drag-and-drop** and click-to-move input
+- **A Bobail variant** where the neutron moves only one square at a time, like a chess king
+- **5×5 and 7×7 board sizes**
+- **Undo, resign, auto-restart**, and a game record pane
 
-    def __iter__(self) -> Iterator[int]:
-        a, b = 0, 1
-        while a <= self.limit:
-            yield a
-            a, b = b, a + b
-
-
-if __name__ == "__main__":
-    fibs = FibSequence(limit=100)
-    for n in fibs:
-        print(n, end=" ")
-    # Output: 0 1 1 2 3 5 8 13 21 34 55 89
-```
-
-Looks good!
+Give it a try: **[Play Neutron](https://msluyter.github.io/neutron/)**
